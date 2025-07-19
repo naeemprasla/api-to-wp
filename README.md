@@ -26,3 +26,34 @@ A powerful PHP class for importing API data into WordPress with automatic field 
 
 ```php
 require_once 'path/to/APItoWP.php';
+
+// Initialize with your API endpoint
+$importer = new APItoWP('https://api.example.com');
+
+// Fetch and import posts
+$posts = $importer->fetch('/posts');
+$mapping = $importer->generate_mapping($posts[0]);
+$results = $importer->save_all($posts, 'custom_post_type', $mapping);
+
+// Output results as JSON
+header('Content-Type: application/json');
+echo json_encode($results);
+
+```json
+{
+    "status": "success",
+    "data": {
+        "total_posts": 100,
+        "imported": 100,
+        "failed": 0,
+        "results": [
+            {
+                "api_id": 1,
+                "wp_id": 123,
+                "status": "success",
+                "error": null
+            }
+        ]
+    },
+    "timestamp": "2023-11-15T12:34:56+00:00"
+}
