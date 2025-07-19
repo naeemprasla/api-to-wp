@@ -24,6 +24,23 @@ A powerful PHP class for importing API data into WordPress with automatic field 
 1. Copy the `APItoWP.php` file to your WordPress plugin or theme directory
 2. Include it in your project:
 
+### How to use this file:
+1. Save this content as `README.md` in your project root
+2. Customize the sections as needed for your specific implementation
+3. Add any additional usage examples or configuration options
+4. Update the requirements section if needed
+
+The markdown includes:
+- Clear section headers
+- Code blocks with syntax highlighting
+- JSON examples
+- Feature highlights
+- Installation and usage instructions
+- License information
+
+
+
+
 ```php
 require_once 'path/to/APItoWP.php';
 
@@ -39,21 +56,22 @@ $results = $importer->save_all($posts, 'custom_post_type', $mapping);
 header('Content-Type: application/json');
 echo json_encode($results);
 
-```json
-{
-    "status": "success",
-    "data": {
-        "total_posts": 100,
-        "imported": 100,
-        "failed": 0,
-        "results": [
-            {
-                "api_id": 1,
-                "wp_id": 123,
-                "status": "success",
-                "error": null
-            }
-        ]
-    },
-    "timestamp": "2023-11-15T12:34:56+00:00"
-}
+Advance Config
+
+$options = [
+    'title_field' => 'title',          // Field to use for post title
+    'content_field' => 'description',  // Field to use for content
+    'unique_field' => 'external_id',   // Field to prevent duplicates
+    'max_depth' => 3,                  // For nested data structures
+    'detect_images' => true,           // Auto-create image fields
+    'auto_create_fields' => true       // Create missing ACF fields
+];
+
+$mapping = $importer->generate_mapping($sample_data, $options);
+
+
+You may want to add:
+- Screenshots of example imports
+- More detailed configuration options
+- Changelog information
+- Contribution guidelines
