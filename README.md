@@ -24,27 +24,6 @@ A powerful PHP class for importing API data into WordPress with automatic field 
 1. Copy the `APItoWP.php` file to your WordPress plugin or theme directory
 2. Include it in your project:
 
-You may want to add:
-- Screenshots of example imports
-- More detailed configuration options
-- Changelog information
-- Contribution guidelines
-
-### How to use this file:
-1. Save this content as `README.md` in your project root
-2. Customize the sections as needed for your specific implementation
-3. Add any additional usage examples or configuration options
-4. Update the requirements section if needed
-
-The markdown includes:
-- Clear section headers
-- Code blocks with syntax highlighting
-- JSON examples
-- Feature highlights
-- Installation and usage instructions
-- License information
-
-
 
 
 ```php
